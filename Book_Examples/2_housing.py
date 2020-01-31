@@ -88,5 +88,8 @@ for set_ in (strat_train_set, strat_test_set):
 ############################## Discover and visualize the data to gain insights
 
 housing = strat_train_set.copy()
-print(housing.head())
+housing.plot(kind="scatter", x="longitude", y="latitude", alpha=0.1)
 
+housing.plot(kind="scatter", x="longitude", y="latitude", alpha=0.4, s=housing["population"]/100, label="population", figsize=(10,7), c="median_house_value", cmap=plt.get_cmap("jet"), colorbar=True, sharex=False)
+plt.legend()
+plt.show()
