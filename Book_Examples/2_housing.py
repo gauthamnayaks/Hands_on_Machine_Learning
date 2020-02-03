@@ -1,5 +1,5 @@
 import os
-datapath = os.path.join("dataset", "housing")
+datapath = os.path.join("Book_Examples","dataset", "housing")
 
 import numpy as np
 import pandas as pd
@@ -8,10 +8,16 @@ from zlib import crc32
 import hashlib
 from sklearn.model_selection import train_test_split, StratifiedShuffleSplit
 
+#############################
+# Where to save the figures
+PROJECT_ROOT_DIR = os.path.abspath(os.getcwd())
+CHAPTER_ID = "end_to_end_project"
+IMAGES_PATH = os.path.join(PROJECT_ROOT_DIR, "images", CHAPTER_ID)
+os.makedirs(IMAGES_PATH)
 
 ##################### Load Data
 def load_housing_data(housing_path=datapath):
-    csv_path = os.path.join(housing_path, "housing.csv")
+    csv_path = os.path.join(PROJECT_ROOT_DIR, housing_path, "housing.csv")
     print("Reading data from path", csv_path, "\n")
     return pd.read_csv(csv_path)
 
